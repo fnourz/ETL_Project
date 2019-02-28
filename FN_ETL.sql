@@ -40,7 +40,7 @@ SELECT * FROM  cdi_2013_top10
 #Now that tables are created for top leading causes of death and top chronic diseases are created, 
 #we joined both tables to observe a side by side perspective. We also had to create a primary key 
 #for each table to allow for a join to occur. Now we are able to see how the top 10 leading causes of death 
-#in the United States compare with the top 10 diseases in the United States for a given year.
+#in the United States compare with the top 10 diseases in the United States for a given year. 
 
 
 
@@ -91,3 +91,7 @@ ADD COLUMN `id` INT(10) unsigned primary KEY AUTO_INCREMENT;
 SELECT  leadingcauses_2016.cause_name, leadingcauses_2016.deaths, cdi_2016_top10.topic, cdi_2016_top10.DataValue
 FROM leadingcauses_2016 
 RIGHT JOIN cdi_2016_top10 ON leadingcauses_2016.id = cdi_2016_top10.id ;
+
+#See folders in main branch to view tables that were created (folders are named Cause of Death and CDI (which is the information
+#for disease prevalance, to show tables for top 10 of each cause of death and disease, as well as the joined tables)                                                                                                        
+
