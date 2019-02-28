@@ -1,7 +1,8 @@
 USE leading_causes_of_death_db;
 
-#selected top 10 from CDI that was loaded into database from jupyter notebook, exported each table
-#already have top ten causes of death dont on jupyter notebook
+#Below we cleaned the disease prevalence datasets for each year to show only the top 10 disease prevalence
+# in that given year. These tables were then exported as a CSV and added into the MySQL database using the 
+#Table Export Wizard.
 
 SELECT *
 FROM CDI_2013
@@ -23,14 +24,27 @@ FROM CDI_2016
 ORDER BY DataValue DESC
 LIMIT 10;
 
-#exported each table and reuploaded into database, there has to be an easier way of doing this, exported and saved each table
+
 
 SELECT * FROM  leadingcauses_2013
 
 SELECT * FROM  cdi_2013_top10
 
 
-#joining leading causes and leading indicators for all years
+#Once we cleaned up the dataset with the disease prevalence to only show the top ten disease indicators in the United 
+#States we are able to join and compare. This allows us to then be able to view the top ten disease indicators 
+#with the top ten causes of death. The values in the disease indicators dataset are “topic” and “datavalue” which 
+#is compared to the values in the causes of death dataset which are “cause_name” and “deaths”.
+
+
+#Now that tables are created for top leading causes of death and top chronic diseases are created, 
+#we joined both tables to observe a side by side perspective. We also had to create a primary key 
+#for each table to allow for a join to occur. Now we are able to see how the top 10 leading causes of death 
+#in the United States compare with the top 10 diseases in the United States for a given year.
+
+
+
+#joining leading death causes and leading disease indicators for all years
 
 SELECT  leadingcauses_2013.cause_name, leadingcauses_2013.deaths, cdi_2013_top10.topic, cdi_2013_top10.DataValue
 FROM leadingcauses_2013 
